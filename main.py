@@ -4,6 +4,8 @@ import random
 from roaster import art
 
 bot = discord.Client();
+filew = open("roaster.txt", "w");
+#filer = open("roaster.txt", "r");
 
 @bot.event
 async def on_ready():
@@ -12,9 +14,13 @@ async def on_ready():
 @bot.event
 @asyncio.coroutine
 async def on_message(message):
-    if message.content.startswith('.aesthetics'):
-        print("Sending A E S T H E T I C S")
-        await bot.send_message(message.channel, random.choice(art));
+    if message.content.startswith('$aesthetics'):
+        print("Sending A E S T H E T I C S");
+        await bot.send_message(message.channel, random.choice(open('roaster.txt').readlines()));
+    if message.content.startswith('$submit'):
+        str_content = message.content[len('$submit'):].strip();
+        filew.write(str_content);
+        filew.close();
 
 def main():
     email = "";
