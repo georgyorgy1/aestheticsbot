@@ -16,13 +16,13 @@ async def on_message(message):
     if message.content.startswith('$aesthetics'):
         print("Sending A E S T H E T I C S");
         await bot.send_message(message.channel, random.choice(open('roaster.txt').readlines()));
-    if message.content.startswith('$submit'):
-        print("Recieving new link....");
-        filea = open("roaster.txt", "a");
-        str_content = message.content[len('$submit'):].strip();
-        print(str_content);
-        filea.write(str_content + "\n");
-        filea.close();
+    #if message.content.startswith('$submit'): No more user submission. This will only create problems
+        #print("Recieving new link....");
+        #filea = open("roaster.txt", "a");
+        #str_content = message.content[len('$submit'):].strip();
+        #print(str_content);
+        #filea.write(str_content + "\n");
+        #filea.close();
     #if message.content.startswith("$createroaster"):
         #filew = open("roaster.txt", "w");
         #newr = message.content[len('$createroaster'):].strip();
